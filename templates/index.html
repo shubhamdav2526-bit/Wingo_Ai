@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Winfo Predictor</title>
+</head>
+<body>
+    <h1>🎰 Winfo Predictor</h1>
+
+    <h2>Latest Prediction</h2>
+    <p>Prediction: {{ latest.prediction }}</p>
+    <p>Confidence: {{ latest.confidence }}</p>
+    <p>Actual: {{ latest.actual }}</p>
+    <p>Win: {{ latest.win }}</p>
+    <p>Time: {{ latest.time }}</p>
+
+    <h2>Last Predictions</h2>
+    <table border="1">
+        <tr><th>Time</th><th>Prediction</th><th>Confidence</th><th>Actual</th><th>Win</th></tr>
+        {% for row in history %}
+        <tr>
+            <td>{{ row.time }}</td>
+            <td>{{ row.prediction }}</td>
+            <td>{{ row.confidence }}</td>
+            <td>{{ row.actual }}</td>
+            <td>{{ row.win }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Chart</h2>
+    <img src="{{ chart }}" width="500">
+</body>
+</html>
